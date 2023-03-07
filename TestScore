@@ -36,7 +36,7 @@ public class TestScoreStatistics {
             System.out.println("Number of scores entered: " + numScores);
             System.out.println("Highest score: " + highestScore);
             System.out.println("Lowest score: " + lowestScore);
-            System.out.println("Arithmetic average: " + averageScore);
+            System.out.println("Arithmetic average: " + String.format("%.2f", averageScore));
         }
     }
 }
