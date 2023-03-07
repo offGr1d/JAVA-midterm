@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class TestScoreStatistics {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int numScores = 0;
+        int highestScore = Integer.MIN_VALUE;
+        int lowestScore = Integer.MAX_VALUE;
+        int scoreSum = 0;
+        
+        while (true) {
+            System.out.print("Enter a test score (or 999 to quit): ");
+            int score = scanner.nextInt();
+            
+            if (score == 999) {
+                break;
+            }
+            
+            if (score < 0 || score > 100) {
+                System.out.println("Invalid score. Score must be between 0 and 100.");
+                continue;
+            }
+            
+            numScores++;
+            scoreSum += score;
+            highestScore = Math.max(highestScore, score);
+            lowestScore = Math.min(lowestScore, score);
+        }
+        
+        if (numScores == 0) {
+            System.out.println("No scores entered.");
+        } else {
+            double averageScore = (double) scoreSum / numScores;
+            
+            System.out.println("Number of scores entered: " + numScores);
+            System.out.println("Highest score: " + highestScore);
+            System.out.println("Lowest score: " + lowestScore);
+            System.out.println("Arithmetic average: " + averageScore);
+        }
+    }
+}
