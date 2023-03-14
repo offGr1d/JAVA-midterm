@@ -1,0 +1,53 @@
+A
+
+public class PurchaseLastName {
+    private int invoiceNumber;
+    private double saleAmount;
+    private double salesTax;
+
+    public void setInvoiceNumber(int invoiceNumber) {
+        this.invoiceNumber = invoiceNumber;
+    }
+
+    public void setSaleAmount(double saleAmount) {
+        this.saleAmount = saleAmount;
+        this.salesTax = 0.59 * saleAmount;
+    }
+
+    public void display() {
+        System.out.println("Invoice Number: " + invoiceNumber);
+        System.out.println("Sale Amount: $" + saleAmount);
+        System.out.println("Sales Tax: $" + salesTax);
+    }
+}
+
+B
+
+import java.util.Scanner;
+
+public class CreatePurchaseLastName {
+    public static void main(String[] args) {
+        PurchaseLastName purchase = new PurchaseLastName();
+
+        Scanner input = new Scanner(System.in);
+
+        // Prompt for invoice number
+        int invoiceNumber = 0;
+        while (invoiceNumber < 1000 || invoiceNumber > 8000) {
+            System.out.print("Enter invoice number (between 1000 and 8000): ");
+            invoiceNumber = input.nextInt();
+        }
+        purchase.setInvoiceNumber(invoiceNumber);
+
+        // Prompt for sale amount
+        double saleAmount = -1;
+        while (saleAmount < 0) {
+            System.out.print("Enter sale amount (nonnegative): $");
+            saleAmount = input.nextDouble();
+        }
+        purchase.setSaleAmount(saleAmount);
+
+        // Display purchase details
+        purchase.display();
+    }
+}
