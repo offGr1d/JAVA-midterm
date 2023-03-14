@@ -1,0 +1,8 @@
+public class Main {
+    public static void main(String[] args) {
+        Purchase purchase = new Purchase();
+        purchase.setInvoiceNumber(1234);
+        purchase.setSaleAmount(100.0);
+        purchase.displayPurchase();
+    }
+}
