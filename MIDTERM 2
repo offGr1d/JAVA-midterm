@@ -38,7 +38,6 @@ public class TestSalesInocentes {
         mySales.setSales1(s1);
         mySales.setSales2(s2);
         mySales.setSales3(s3);
-
         mySales.displayinfo();
     }
 }
