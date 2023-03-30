@@ -2,33 +2,55 @@ import java.util.Scanner;
 
 public class SemifinalExercise1 {
     public static void main(String[] args) {
+        // Create a Scanner object to read user input
         Scanner input = new Scanner(System.in);
-        
-        System.out.print("Enter a name: ");
-        String name = input.nextLine().toLowerCase();
-        
-        int totalLetters = name.length();
-        int vowelCount = 0;
-        int consonantCount = 0;
+
+        // Initialize counters for the number of total letters, vowels, and consonants
+        int totalLetters = 0;
+        int vowelTotal = 0;
+        int consonantTotal = 0;
+
+        // Initialize empty strings to store the vowels and consonants found in the user input
         String vowels = "";
         String consonants = "";
-        
-        for (int i = 0; i < totalLetters; i++) {
+
+        // Prompt the user to enter a name
+        System.out.print("Enter a name: ");
+
+        // Read the user input as a String
+        String name = input.nextLine();
+
+        // Loop through each character in the name
+        for (int i = 0; i < name.length(); i++) {
+            // Get the current character
             char c = name.charAt(i);
-            
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                vowelCount++;
-                vowels += c + " ";
-            } else if (c >= 'a' && c <= 'z') {
-                consonantCount++;
-                consonants += c + " ";
+
+            // Convert the character to lowercase to simplify vowel checking
+            c = Character.toLowerCase(c);
+
+            // Check if the character is a letter
+            if (Character.isLetter(c)) {
+                // Increment the total number of letters
+                totalLetters++;
+
+                // Check if the character is a vowel
+                if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                    // Increment the vowel counter and add the vowel to the vowel string
+                    vowelTotal++;
+                    vowels += c + " ";
+                } else {
+                    // Otherwise, the character is a consonant, so increment the consonant counter and add the consonant to the consonant string
+                    consonantTotal++;
+                    consonants += c + " ";
+                }
             }
         }
-        
+
+        // Print the results of the analysis
         System.out.println("Total number of letters: " + totalLetters);
-        System.out.println("Number of vowels: " + vowelCount);
+        System.out.println("Number of vowels: " + vowelTotal);
         System.out.println("Vowels: " + vowels);
-        System.out.println("Number of consonants: " + consonantCount);
+        System.out.println("Number of consonants: " + consonantTotal);
         System.out.println("Consonants: " + consonants);
     }
 }
