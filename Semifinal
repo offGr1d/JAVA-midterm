@@ -38,8 +38,8 @@ public class SemifinalExercise1 {
                     // Increment the vowel counter and add the vowel to the vowel string
                     vowelTotal++;
                     vowels += c + " ";
-                } else {
-                    // Otherwise, the character is a consonant, so increment the consonant counter and add the consonant to the consonant string
+                } 
+                else if (Character.isLetter(c)) {
                     consonantTotal++;
                     consonants += c + " ";
                 }
