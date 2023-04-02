@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class SemifinalExercise1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int totalLetters = 0;
+        int vowelTotal = 0;
+        int consonantTotal = 0;
+        String vowels = "";
+        String consonants = "";
+
+
+        System.out.print("Enter a name: ");
+        String name = input.nextLine();
+
+
+        for (int i = 0; i < name.length(); i++) {
+            char c = name.charAt(i);
+            c = Character.toLowerCase(c);
+
+            if (Character.isLetter(c)) {
+                totalLetters++;
+
+                if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                    vowelTotal++;
+                    vowels += c + " ";
+                }
+                else if (Character.isLetter(c)) {
+                    consonantTotal++;
+                    consonants += c + " ";
+                }
+            }
+        }
+
+        // Print the results of the analysis
+        System.out.println("Total number of letters: " + totalLetters);
+        System.out.println("Number of vowels: " + vowelTotal);
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Number of consonants: " + consonantTotal);
+        System.out.println("Consonants: " + consonants);
+    }
+}
