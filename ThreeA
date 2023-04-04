@@ -2,26 +2,26 @@ import java.util.Scanner;
 
 public class ThreeLetterAcronym {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter three words: ");
-        String input = scanner.nextLine();
-        String acronym = generateAcronym(input);
-        System.out.println(acronym.toUpperCase());
+        Scanner scanner = new Scanner(System.in); // Creates a new Scanner object to read input from the console
+        System.out.print("Enter three words: "); // Prompts the user to enter three words
+        String input = scanner.nextLine(); // Reads the user's input as a string
+        String acronym = generateAcronym(input); // Calls the generateAcronym method with the user's input and stores the result in acronym
+        System.out.println(acronym.toUpperCase()); // Prints the acronym in all uppercase letters
     }
     
     public static String generateAcronym(String input) {
-        String acronym = "";
-        int count = 0;
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == ' ') {
-                count++;
-                if (count == 3) {
-                    break;
+        String acronym = ""; // Initializes an empty string to store the acronym
+        int count = 0; // Initializes a counter variable to keep track of the number of words processed
+        for (int i = 0; i < input.length(); i++) { // Loops over each character in the input string
+            if (input.charAt(i) == ' ') { // Checks if the current character is a space
+                count++; // Increments the counter variable
+                if (count == 3) { // Checks if the counter has reached 3
+                    break; // If so, exits the loop
                 }
-            } else if (count < 3 && i == 0 || input.charAt(i - 1) == ' ') {
-                acronym += input.charAt(i);
+            } else if (count < 3 && i == 0 || input.charAt(i - 1) == ' ') { // Checks if the current character is the first letter of a word
+                acronym += input.charAt(i); // If so, appends the character to the acronym string
             }
         }
-        return acronym;
+        return acronym; // Returns the acronym string
     }
 }
