@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class PasswordValidator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder password = new StringBuilder();
+
+        while (true) {
+            System.out.print("Enter a password that contains at least two uppercase letters, at least two lowercase letters, and at least two digits: ");
+            password.setLength(0); // Clear previous input
+            password.append(scanner.nextLine());
+
+            if (password.toString().matches("^(?=.*[A-Z].*[A-Z])(?=.*[a-z].*[a-z])(?=.*\\d.*\\d).{6,}$")) {
+                System.out.println("Password is valid!");
+                break; // Exit loop if password is valid
+            } else if (!password.toString().matches("^(?=.*[A-Z].*[A-Z]).*$")) {
+                System.out.println("Password must contain at least two uppercase letters.");
+            } else if (!password.toString().matches("^(?=.*[a-z].*[a-z]).*$")) {
+                System.out.println("Password must contain at least two lowercase letters.");
+            } else if (!password.toString().matches("^(?=.*\\d.*\\d).*$")) {
+                System.out.println("Password must contain at least two digits.");
+            } else {
+                System.out.println("Password must be at least 6 characters long.");
+            }
+        }
+    }
+}
