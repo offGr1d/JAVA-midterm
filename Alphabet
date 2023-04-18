@@ -5,22 +5,22 @@ public class StringSorter {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         
-        // Prompt user to enter 3 strings
-        System.out.println("Enter 3 strings:");
+        System.out.println("Enter the first string:");
         String str1 = input.nextLine().toLowerCase();
-        String str2 = input.nextLine().toLowerCase();
-        String str3 = input.nextLine().toLowerCase();
         
-        // Count number of words in each string
+        System.out.println("Enter the second string:");
+        String str2 = input.nextLine().toLowerCase();
+        
+        System.out.println("Enter the third string:");
+        String str3 = input.nextLine().toLowerCase();
+
         int wordCount1 = str1.split("\\s+").length;
         int wordCount2 = str2.split("\\s+").length;
         int wordCount3 = str3.split("\\s+").length;
-        
-        // Sort strings alphabetically
+
         String[] strings = {str1, str2, str3};
         Arrays.sort(strings);
-        
-        // Output sorted strings and their word counts
+
         System.out.println("Sorted strings:");
         for (String s : strings) {
             System.out.println(s + " (" + s.split("\\s+").length + " words)");
