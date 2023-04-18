@@ -1,39 +1,29 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class StringSorter {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        String[] strings = new String[3];
-
-        // prompt user to enter 3 strings
-        for (int i = 0; i < 3; i++) {
-            System.out.print("Enter string " + (i+1) + ": ");
-            strings[i] = input.nextLine();
-        }
-
-        // count number of words in each string
-        int[] wordCounts = new int[3];
-        for (int i = 0; i < 3; i++) {
-            wordCounts[i] = strings[i].split("\\s+").length;
-        }
-
-        // sort strings alphabetically (ignoring case)
-        for (int i = 0; i < strings.length-1; i++) {
-            for (int j = 0; j < strings.length-1-i; j++) {
-                if (strings[j].compareToIgnoreCase(strings[j+1]) > 0) {
-                    String temp = strings[j];
-                    strings[j] = strings[j+1];
-                    strings[j+1] = temp;
-                    int tempCount = wordCounts[j];
-                    wordCounts[j] = wordCounts[j+1];
-                    wordCounts[j+1] = tempCount;
-                }
-            }
-        }
-
-        // display results
-        for (int i = 0; i < 3; i++) {
-            System.out.println(strings[i] + " has " + wordCounts[i] + " words");
+        
+        // Prompt user to enter 3 strings
+        System.out.println("Enter 3 strings:");
+        String str1 = input.nextLine().toLowerCase();
+        String str2 = input.nextLine().toLowerCase();
+        String str3 = input.nextLine().toLowerCase();
+        
+        // Count number of words in each string
+        int wordCount1 = str1.split("\\s+").length;
+        int wordCount2 = str2.split("\\s+").length;
+        int wordCount3 = str3.split("\\s+").length;
+        
+        // Sort strings alphabetically
+        String[] strings = {str1, str2, str3};
+        Arrays.sort(strings);
+        
+        // Output sorted strings and their word counts
+        System.out.println("Sorted strings:");
+        for (String s : strings) {
+            System.out.println(s + " (" + s.split("\\s+").length + " words)");
         }
     }
 }
