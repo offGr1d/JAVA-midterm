@@ -1,47 +1,29 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class StringSorter {
+public class Alphabetize {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Enter the first string:");
+        // Prompt user to enter 3 strings
+        System.out.println("Enter 3 strings:");
         String str1 = input.nextLine().toLowerCase();
-
-        System.out.println("Enter the second string:");
         String str2 = input.nextLine().toLowerCase();
-
-        System.out.println("Enter the third string:");
         String str3 = input.nextLine().toLowerCase();
 
-        int wordCount1 = countWords(str1);
-        int wordCount2 = countWords(str2);
-        int wordCount3 = countWords(str3);
+        // Count number of words in each string
+        int wordCount1 = str1.split(" ").length;
+        int wordCount2 = str2.split(" ").length;
+        int wordCount3 = str3.split(" ").length;
 
+        // Sort strings alphabetically
         String[] strings = {str1, str2, str3};
         Arrays.sort(strings);
 
+        // Output sorted strings and their word counts
         System.out.println("Sorted strings:");
         for (String s : strings) {
-            int wordCount = countWords(s);
-            System.out.println(s + " (" + wordCount + " words)");
+            System.out.println(s + " (" + s.split(" ").length + " words)");
         }
-    }
-
-    public static int countWords(String s) {
-        int count = 0;
-        boolean isWord = false;
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (Character.isLetter(c)) {
-                if (!isWord) {
-                    isWord = true;
-                    count++;
-                }
-            } else {
-                isWord = false;
-            }
-        }
-        return count;
     }
 }
