@@ -21,7 +21,7 @@ public class Alphabetize {
         String[] strings = {str1, str2, str3};
         Arrays.sort(strings);
 
-        // Output orted words and the length of words
+        // Output Sorted words and the length of words
         System.out.println("\nSorted words");
         for (String s : strings) {
             System.out.println(s + " (" + s.split(" ").length + " words)");
