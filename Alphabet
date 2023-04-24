@@ -6,9 +6,11 @@ public class Alphabetize {
         Scanner input = new Scanner(System.in);
 
         // Prompt user to enter 3 strings
-        System.out.println("Enter 3 strings:");
+        System.out.print("Enter the first word: ");
         String str1 = input.nextLine().toLowerCase();
+        System.out.print("Enter the second word: ");
         String str2 = input.nextLine().toLowerCase();
+        System.out.print("Enter the third word: ");
         String str3 = input.nextLine().toLowerCase();
 
         // Count number of words in each string
@@ -21,7 +23,7 @@ public class Alphabetize {
         Arrays.sort(strings);
 
         // Output sorted strings and their word counts
-        System.out.println("Sorted strings:");
+        System.out.println("Sorted words\n");
         for (String s : strings) {
             System.out.println(s + " (" + s.split(" ").length + " words)");
         }
