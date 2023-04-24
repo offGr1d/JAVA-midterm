@@ -13,9 +13,9 @@ public class Alphabetize {
         String str3 = input.nextLine().toLowerCase();
 
         // split each string into array and count the words
-        int wordCount1 = str1.split("").length;
-        int wordCount2 = str2.split("").length;
-        int wordCount3 = str3.split("").length;
+        int wordCount1 = str1.split(" ").length;
+        int wordCount2 = str2.split(" ").length;
+        int wordCount3 = str3.split(" ").length;
 
         // Sort strings alphabetically
         String[] strings = {str1, str2, str3};
